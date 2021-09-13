@@ -4,7 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 //스프링 설정 파일
-
+//해당 클래스를 스프링 설정 클래스로 지정
 @Configuration
 public class AppContext {
 
