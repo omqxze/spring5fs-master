@@ -8,6 +8,9 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AppContext {
 
+	//Bean->스프링이 생성하는 객체
+	//@Bean 해당 메서드가 생성한 객체를 스프링이 관리하는 빈 객체로 등록
+	//이게 붙으면 알맞게 초기화를 해줘야함
 	@Bean
 	public Greeter greeter() {
 		Greeter g = new Greeter();

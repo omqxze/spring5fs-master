@@ -7,6 +7,9 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 public class Main {
 
+	/*여기서 g1 g2가 같다는건 싱글톤 객체라는것
+	  한개의 @Bean이 붙으면 이건 싱글톤 범위를 갖는다고 표현
+	 */
 	public static void main(String[] args) {
 		AnnotationConfigApplicationContext ctx = 
 				new AnnotationConfigApplicationContext(AppContext.class);
