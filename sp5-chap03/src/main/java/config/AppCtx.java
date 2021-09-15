@@ -52,7 +52,7 @@ public class AppCtx {
 	@Bean
 	public VersionPrinter versionPrinter() {
 		VersionPrinter versionPrinter = new VersionPrinter();
-		versionPrinter.setMajorVersion(5);
+		versionPrinter.setMajorVersion(6);
 		versionPrinter.setMinorVersion(0);
 		return versionPrinter;
 	}

@@ -59,14 +59,14 @@ public class MainForSpring {
 			printHelp();
 			return;
 		}
-		MemberRegisterService regSvc = 
+		MemberRegisterService regSvc =
 				ctx.getBean("memberRegSvc", MemberRegisterService.class);
 		RegisterRequest req = new RegisterRequest();
 		req.setEmail(arg[1]);
 		req.setName(arg[2]);
 		req.setPassword(arg[3]);
 		req.setConfirmPassword(arg[4]);
-		
+
 		if (!req.isPasswordEqualToConfirmPassword()) {
 			System.out.println("암호와 확인이 일치하지 않습니다.\n");
 			return;

@@ -1,16 +1,11 @@
 package main;
 
+import assembler.Assembler;
+import spring.*;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
-import assembler.Assembler;
-import spring.ChangePasswordService;
-import spring.DuplicateMemberException;
-import spring.MemberNotFoundException;
-import spring.MemberRegisterService;
-import spring.RegisterRequest;
-import spring.WrongIdPasswordException;
 
 public class MainForAssembler {
 
@@ -18,7 +13,7 @@ public class MainForAssembler {
 		BufferedReader reader = 
 				new BufferedReader(new InputStreamReader(System.in));
 		while (true) {
-			System.out.println("명령어를 입력하세요:");
+			System.out.print("명령어를 입력하세요:");
 			String command = reader.readLine();
 			if (command.equalsIgnoreCase("exit")) {
 				System.out.println("종료합니다.");
@@ -35,7 +30,7 @@ public class MainForAssembler {
 		}
 	}
 
-	private static Assembler assembler = new Assembler();
+	private static Assembler assembler = new Assembler(); //Assembler 객체 생성
 
 	private static void processNewCommand(String[] arg) {
 		if (arg.length != 5) {
