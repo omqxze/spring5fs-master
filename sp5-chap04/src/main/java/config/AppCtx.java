@@ -3,15 +3,7 @@ package config;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import spring.ChangePasswordService;
-import spring.MemberDao;
-import spring.MemberInfoPrinter;
-import spring.MemberListPrinter;
-import spring.MemberPrinter;
-import spring.MemberRegisterService;
-import spring.MemberSummaryPrinter;
-import spring.VersionPrinter;
+import spring.*;
 
 @Configuration
 public class AppCtx {
@@ -30,7 +22,12 @@ public class AppCtx {
 	public ChangePasswordService changePwdSvc() {
 		return new ChangePasswordService();
 	}
-	
+
+	@Bean
+	public MemberPrinter memberPrinter(){
+		return new MemberPrinter();
+	}
+
 	@Bean
 	@Qualifier("printer")
 	public MemberPrinter memberPrinter1() {
@@ -51,6 +48,7 @@ public class AppCtx {
 	@Bean
 	public MemberInfoPrinter infoPrinter() {
 		MemberInfoPrinter infoPrinter = new MemberInfoPrinter();
+		infoPrinter.setPrinter(memberPrinter1());
 		return infoPrinter;
 	}
 	

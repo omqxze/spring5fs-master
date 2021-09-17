@@ -1,10 +1,9 @@
 package spring;
 
-import java.time.format.DateTimeFormatter;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
+
+import java.time.format.DateTimeFormatter;
 
 public class MemberPrinter {
 	private DateTimeFormatter dateTimeFormatter;
@@ -27,12 +26,15 @@ public class MemberPrinter {
 					dateTimeFormatter.format(member.getRegisterDateTime()));
 		}
 	}
-	
+	//매칭 되는 빈이 없어도 자둥주입x과 익셉션x
+	/*
 	@Autowired(required = false)
 	public void setDateFormatter(DateTimeFormatter dateTimeFormatter) {
 		this.dateTimeFormatter = dateTimeFormatter;
 	}
+    */
 
+	//자동 주입 대상 타입이 Optional인 경우 일치하는 빈이 존재하지않으면 값이 없는 Optional(=null)을 인자로 전달
 //	@Autowired
 //	public void setDateFormatter(Optional<DateTimeFormatter> formatterOpt) {
 //		if (formatterOpt.isPresent()) {
@@ -42,9 +44,9 @@ public class MemberPrinter {
 //		}
 //	}
 	
-//	@Autowired
-//	public void setDateFormatter(@Nullable DateTimeFormatter dateTimeFormatter) {
-//		this.dateTimeFormatter = dateTimeFormatter;
-//	}
+	@Autowired
+	public void setDateFormatter(@Nullable DateTimeFormatter dateTimeFormatter) {
+		this.dateTimeFormatter = dateTimeFormatter;
+	}
 	
 }
